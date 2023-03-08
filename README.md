@@ -1,2 +1,2 @@
 # Specular-To-IOR
-An OSL plugin that convert Specular to IOR for offline renderer such as V-Ray
+This an simple OSL plugin that can convert Specular map to IOR map which used in offline renderer ( V-Ray, etc.).
