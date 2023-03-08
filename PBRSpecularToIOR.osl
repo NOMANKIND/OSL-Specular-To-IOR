@@ -1,0 +1,30 @@
+// Convert Specular to IOR
+// PBRSpecularToIOR.osl, by NOMANKIND
+// Modified: 2023-03-08
+// Copyright 2023 NOMANKIND
+
+shader PBRSpecularToIOR
+[[ string help =
+	"Convert <b>Specular</b> map to <b>IOR</b> map for VRaymtl,<br>"
+	"When enable remap range option,<br>"
+	"specular is remapped which F0 is set in 0%-8%,<br>"
+	"covering IOR 1-1.8 and specially 0.5 Specular = 1.5 IOR.<br>"
+	"转换镜面反射贴图为用于V-Ray材质的IOR贴图.<br>"
+	"重映射选项开启时，镜面反射重映射为0%-8%的F0，覆盖1-1.8的IOR，特别地0.5值=1.5IOR。<br>",
+   string label= "PBR Specular To IOR",]]
+(
+	float Input = 0.0
+	[[ string label = "Specular Map"]],
+	int RemapOption = 0
+	[[ string widget="checkBox",
+	   string label = "Remap Range"]],
+	output float Out = 0.0,
+)
+{
+	if (RemapOption==1)
+	{
+		Out = 2/(1-sqrt(0.08*Input))-1;
+	} else {
+		Out = 2/(1-sqrt(Input))-1;
+	}
+}
