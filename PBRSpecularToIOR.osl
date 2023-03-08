@@ -8,9 +8,7 @@ shader PBRSpecularToIOR
 	"Convert <b>Specular</b> map to <b>IOR</b> map for VRaymtl,<br>"
 	"When enable remap range option,<br>"
 	"specular is remapped which F0 is set in 0%-8%,<br>"
-	"covering IOR 1-1.8 and specially 0.5 Specular = 1.5 IOR.<br>"
-	"转换镜面反射贴图为用于V-Ray材质的IOR贴图.<br>"
-	"重映射选项开启时，镜面反射重映射为0%-8%的F0，覆盖1-1.8的IOR，特别地0.5值=1.5IOR。<br>",
+	"covering IOR 1-1.8 and specially 0.5 Specular = 1.5 IOR.<br>",
    string label= "PBR Specular To IOR",]]
 (
 	float Input = 0.0
